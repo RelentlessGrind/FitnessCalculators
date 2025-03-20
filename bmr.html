@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMR Calculator - Fitness Calculators</title>
+    
+    <!-- Bootstrap CSS with Replit theme -->
+    <link href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="custom.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-dumbbell me-2"></i>Fitness Calculators
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="1rm.html">1RM Calculator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bmi.html">BMI Calculator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="bmr.html">BMR Calculator</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+        <!-- Page Header -->
+        <header class="text-center mb-5">
+            <h1 class="display-5 mb-3">Basal Metabolic Rate (BMR) Calculator</h1>
+            <p class="lead">Calculate your daily calorie needs based on your body and activity level</p>
+        </header>
+        
+        <!-- Calculator Section -->
+        <section class="calculator-section">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>BMR Calculator</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <form id="bmrForm">
+                                        <div class="mb-3">
+                                            <label for="formula" class="form-label">Calculation Formula</label>
+                                            <select class="form-select" id="formula">
+                                                <option value="mifflin">Mifflin-St Jeor (Recommended)</option>
+                                                <option value="harris">Harris-Benedict</option>
+                                            </select>
+                                            <div class="form-text">Choose the formula used to calculate your BMR</div>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="unit" class="form-label">Unit System</label>
+                                            <select class="form-select unit-select" id="unit">
+                                                <option value="metric">Metric (kg, cm)</option>
+                                                <option value="imperial">Imperial (lb, in)</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label class="form-label">Gender</label>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="gender" id="male" value="male" checked>
+                                                <label class="form-check-label" for="male">Male</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                                                <label class="form-check-label" for="female">Female</label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="age" class="form-label">Age</label>
+                                            <input type="number" class="form-control" id="age" 
+                                                  placeholder="Enter age" required min="15" max="100">
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="height" class="form-label height-label">Height (cm)</label>
+                                            <input type="number" class="form-control" id="height" 
+                                                  placeholder="Enter height" required min="1" step="any">
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="weight" class="form-label weight-label">Weight (kg)</label>
+                                            <input type="number" class="form-control" id="weight" 
+                                                  placeholder="Enter weight" required min="1" step="any">
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="activity" class="form-label">Activity Level</label>
+                                            <select class="form-select" id="activity">
+                                                <option value="sedentary">Sedentary (little or no exercise)</option>
+                                                <option value="light">Light Exercise (1-3 days per week)</option>
+                                                <option value="moderate">Moderate Exercise (3-5 days per week)</option>
+                                                <option value="active">Active (6-7 days per week)</option>
+                                                <option value="very-active">Very Active (intense exercise daily)</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="alert alert-danger d-none" id="bmrError"></div>
+                                        
+                                        <button type="submit" class="btn btn-primary">Calculate BMR</button>
+                                    </form>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div id="bmrResult" class="d-none">
+                                        <h4 class="mb-4">Your Results</h4>
+                                        
+                                        <div class="result-box mb-3">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <p class="mb-1">Basal Metabolic Rate (BMR):</p>
+                                                    <small>Calories needed at complete rest</small>
+                                                </div>
+                                                <div class="col text-end">
+                                                    <p class="mb-1 fw-bold"><span id="bmrValue">0</span> calories/day</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="result-box mb-3">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <p class="mb-1">Total Daily Energy Expenditure (TDEE):</p>
+                                                    <small>Calories needed with your activity level</small>
+                                                </div>
+                                                <div class="col text-end">
+                                                    <p class="mb-1 fw-bold"><span id="tdeeValue">0</span> calories/day</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mt-4">
+                                            <h5>What do these numbers mean?</h5>
+                                            <p><strong>BMR</strong> (Basal Metabolic Rate) is the amount of energy your body needs to maintain vital functions while at rest.</p>
+                                            <p><strong>TDEE</strong> (Total Daily Energy Expenditure) is your BMR multiplied by your activity level - this is the estimated total calories you burn in a day.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Information Section -->
+                    <div class="card mt-4">
+                        <div class="card-header">
+                            <h3>Understanding BMR and TDEE</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="mb-3">What is BMR?</h4>
+                            <p>Basal Metabolic Rate (BMR) represents the minimum amount of energy your body needs to perform essential functions when at complete rest. These include:</p>
+                            <ul>
+                                <li>Breathing and circulation</li>
+                                <li>Cell production and growth</li>
+                                <li>Nutrient processing</li>
+                                <li>Hormone level maintenance</li>
+                                <li>Brain function</li>
+                            </ul>
+                            
+                            <h4 class="mt-4 mb-3">BMR Calculation Formulas</h4>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card mb-3">
+                                        <div class="card-header">Mifflin-St Jeor Equation</div>
+                                        <div class="card-body">
+                                            <p><strong>For men:</strong><br>
+                                            BMR = (10 × weight in kg) + (6.25 × height in cm) - (5 × age in years) + 5</p>
+                                            <p><strong>For women:</strong><br>
+                                            BMR = (10 × weight in kg) + (6.25 × height in cm) - (5 × age in years) - 161</p>
+                                            <p><em>Regarded as the most accurate for most people</em></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card mb-3">
+                                        <div class="card-header">Harris-Benedict Equation</div>
+                                        <div class="card-body">
+                                            <p><strong>For men:</strong><br>
+                                            BMR = 88.362 + (13.397 × weight in kg) + (4.799 × height in cm) - (5.677 × age in years)</p>
+                                            <p><strong>For women:</strong><br>
+                                            BMR = 447.593 + (9.247 × weight in kg) + (3.098 × height in cm) - (4.330 × age in years)</p>
+                                            <p><em>The original and widely used formula</em></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h4 class="mt-3 mb-3">Activity Multipliers</h4>
+                            <p>Your TDEE is calculated by multiplying your BMR by an activity factor:</p>
+                            
+                            <ul>
+                                <li><strong>Sedentary</strong> (little or no exercise): BMR × 1.2</li>
+                                <li><strong>Light Activity</strong> (light exercise 1-3 days/week): BMR × 1.375</li>
+                                <li><strong>Moderate Activity</strong> (moderate exercise 3-5 days/week): BMR × 1.55</li>
+                                <li><strong>Active</strong> (hard exercise 6-7 days/week): BMR × 1.725</li>
+                                <li><strong>Very Active</strong> (intense daily exercise): BMR × 1.9</li>
+                            </ul>
+                            
+                            <div class="alert alert-info mt-4">
+                                <i class="fas fa-info-circle me-2"></i>
+                                <strong>Tip:</strong> For weight loss, consume fewer calories than your TDEE. For weight gain, consume more calories than your TDEE. For weight maintenance, aim to consume calories equal to your TDEE.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Fitness Calculators</h5>
+                    <p><small>A tool to help you on your fitness journey</small></p>
+                </div>
+                <div class="col-md-4 text-md-center">
+                    <h5>Connect With Us</h5>
+                    <a href="https://www.instagram.com/brettmiller2025/" target="_blank" class="btn btn-outline-light">
+                        <i class="fab fa-instagram me-2"></i>@brettmiller2025
+                    </a>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <p><small>Disclaimer: These calculators provide estimates. Consult with health professionals for personalized advice.</small></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="calculators.js"></script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Calculators - Home</title>
+    
+    <!-- Bootstrap CSS with Replit theme -->
+    <link href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="custom.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-dumbbell me-2"></i>Fitness Calculators
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="1rm.html">1RM Calculator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bmi.html">BMI Calculator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bmr.html">BMR Calculator</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+        <!-- Hero Section -->
+        <section class="hero-section text-center mb-5">
+            <h1 class="display-4 mb-4">Fitness Calculators</h1>
+            <p class="lead mb-4">Track your progress, optimize your training, and understand your body better</p>
+        </section>
+
+        <!-- Calculators Cards -->
+        <section class="calculators-section">
+            <div class="row g-4">
+                <!-- 1RM Calculator Card -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="text-center mb-3">
+                                <i class="fas fa-weight-hanging fa-3x mb-3"></i>
+                                <h3 class="card-title">1RM Calculator</h3>
+                            </div>
+                            <p class="card-text">Calculate your one-rep maximum for any lift based on the weight you can lift for multiple reps.</p>
+                            <ul class="mb-4">
+                                <li>Estimate your maximum strength</li>
+                                <li>Compare results from multiple formulas</li>
+                                <li>Track strength gains over time</li>
+                            </ul>
+                            <div class="text-center mt-auto">
+                                <a href="1rm.html" class="btn btn-primary">Calculate 1RM</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- BMI Calculator Card -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="text-center mb-3">
+                                <i class="fas fa-ruler fa-3x mb-3"></i>
+                                <h3 class="card-title">BMI Calculator</h3>
+                            </div>
+                            <p class="card-text">Calculate your Body Mass Index to understand if your weight is in a healthy range for your height.</p>
+                            <ul class="mb-4">
+                                <li>Check if your weight is ideal</li>
+                                <li>Supports both metric and imperial units</li>
+                                <li>Get your BMI category</li>
+                            </ul>
+                            <div class="text-center mt-auto">
+                                <a href="bmi.html" class="btn btn-primary">Calculate BMI</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- BMR Calculator Card -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="text-center mb-3">
+                                <i class="fas fa-fire fa-3x mb-3"></i>
+                                <h3 class="card-title">BMR Calculator</h3>
+                            </div>
+                            <p class="card-text">Calculate your Basal Metabolic Rate to understand how many calories your body needs at rest.</p>
+                            <ul class="mb-4">
+                                <li>Find your daily calorie needs</li>
+                                <li>Adjust for activity level</li>
+                                <li>Multiple formula options</li>
+                            </ul>
+                            <div class="text-center mt-auto">
+                                <a href="bmr.html" class="btn btn-primary">Calculate BMR</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Fitness Tips Carousel -->
+        <section class="carousel-section mt-5">
+            <h2 class="text-center mb-4">Fitness Tips</h2>
+            <div id="fitnessCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#fitnessCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#fitnessCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#fitnessCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner rounded">
+                    <div class="carousel-item active">
+                        <div class="d-flex h-100 bg-dark text-white p-5">
+                            <div class="carousel-content">
+                                <h3>Progressive Overload</h3>
+                                <p>Gradually increase the weight, frequency, or number of repetitions in your strength training routine. This challenges your muscles and allows them to adapt and grow stronger over time.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="d-flex h-100 bg-dark text-white p-5">
+                            <div class="carousel-content">
+                                <h3>Nutrition Matters</h3>
+                                <p>Your body needs proper fuel to perform and recover. Aim for a balanced diet with adequate protein, complex carbohydrates, and healthy fats. Don't forget to stay hydrated throughout the day.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="d-flex h-100 bg-dark text-white p-5">
+                            <div class="carousel-content">
+                                <h3>Rest and Recovery</h3>
+                                <p>Muscles grow during rest, not during workouts. Ensure you're getting 7-9 hours of quality sleep each night and include rest days in your training schedule to prevent overtraining and injury.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#fitnessCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#fitnessCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Fitness Calculators</h5>
+                    <p><small>A tool to help you on your fitness journey</small></p>
+                </div>
+                <div class="col-md-4 text-md-center">
+                    <h5>Connect With Us</h5>
+                    <a href="https://www.instagram.com/brettmiller2025/" target="_blank" class="btn btn-outline-light">
+                        <i class="fab fa-instagram me-2"></i>@brettmiller2025
+                    </a>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <p><small>Disclaimer: These calculators provide estimates. Consult with health professionals for personalized advice.</small></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="calculators.js"></script>
+</body>
+</html>

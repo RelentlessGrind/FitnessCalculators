@@ -1,0 +1,74 @@
+/* Custom styles for Fitness Calculators */
+
+/* General elements */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* Card styling */
+.card {
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.result-box {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+/* Calculator section */
+.calculator-section {
+    margin-bottom: 3rem;
+}
+
+.formula-explanation {
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+/* Carousel styling */
+.carousel-item {
+    height: 280px;
+}
+
+.carousel-content {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Footer styling */
+footer {
+    margin-top: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .carousel-item {
+        height: 350px;
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel-item {
+        height: 400px;
+    }
+}
